@@ -136,7 +136,7 @@ public:
     void findSimilarDirectors(string inDirector, string inName) {
         vector<string> simMovies;
         for (int i = 0; i < cap; i++) {
-            if (movies[i].director == inDirector) {
+            if (movies[i].director == inDirector && movies[i].name != inName) {
                 simMovies.push_back(movies[i].name);
             }
         }
@@ -146,7 +146,7 @@ public:
     void findSimilarGenre(string inGenre, string inName) {
         vector<string> simMovies;
         for (int i = 0; i < cap; i++) {
-            if (movies[i].genre == inGenre) {
+            if (movies[i].genre == inGenre && movies[i].name != inName) {
                 simMovies.push_back(movies[i].name);
             }
         }
@@ -156,7 +156,7 @@ public:
     void findSimilarYear(double inYear, string inName) {
         vector<string> simMovies;
         for (int i = 0; i < cap; i++) {
-            if (movies[i].year == inYear) {
+            if (movies[i].year == inYear && movies[i].name != inName) {
                 simMovies.push_back(movies[i].name);
             }
         }
@@ -199,7 +199,7 @@ public:
         int inRating_i;
         double inRating_d;
 
-        inFS.open("/Users/jonathanasbury/CLionProjects/DSA_Project3/movie_data.csv");
+        inFS.open("/Users/jonathanasbury/CLionProjects/Project 3/MovieSuggester/data/movie_data.csv");
         if (!inFS.is_open()) {
             cout << "Could not open movie data" << endl;
             return;
@@ -348,7 +348,7 @@ public:
         int inRating_i;
         double inRating_d;
 
-        inFS.open("/Users/jonathanasbury/CLionProjects/DSA_Project3/movie_data.csv");
+        inFS.open("/Users/jonathanasbury/CLionProjects/Project 3/MovieSuggester/data/fake_data.csv");
         if (!inFS.is_open()) {
             cout << "Could not open movie data" << endl;
             return;
@@ -400,7 +400,7 @@ int main() {
     string inMovie;
 
     cout << "Welcome to MovieSuggester3001!" << endl;
-    cout << "This tool will let you input a movie title and let you search for similar movies based on director, genre, or release year" << endl << endl;
+    cout << "This tool will let you input a movie title and searches for similar movies based on director, genre, or release year" << endl << endl;
     cout << endl;
     cout << "Settings: choose your algorithm" << endl;
     cout << "1) Unordered Map" << endl;
@@ -417,7 +417,7 @@ int main() {
         cout << "Input Move Title:" << endl;
         getline(cin, inMovie);
 
-        cout << "Get movie recommendation based on:" << endl;
+        cout << "Get movie recommendations based on:" << endl;
         cout << "1) Director" << endl;
         cout << "2) Genre" << endl;
         cout << "3) Release Year" << endl;
@@ -445,7 +445,7 @@ int main() {
 
         const Movie* TargetMovie = Movie_Map[inMovie];
 
-        cout << "Get movie recommendation based on:" << endl;
+        cout << "Get movie recommendations based on:" << endl;
         cout << "1) Director" << endl;
         cout << "2) Genre" << endl;
         cout << "3) Release Year" << endl;
