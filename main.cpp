@@ -199,7 +199,7 @@ public:
         int inRating_i;
         double inRating_d;
 
-        inFS.open("/Users/jonathanasbury/CLionProjects/Project 3/MovieSuggester/data/movie_data.csv");
+        inFS.open("data/movie_data.csv");
         if (!inFS.is_open()) {
             cout << "Could not open movie data" << endl;
             return;
@@ -348,7 +348,7 @@ public:
         int inRating_i;
         double inRating_d;
 
-        inFS.open("/Users/jonathanasbury/CLionProjects/Project 3/MovieSuggester/data/fake_data.csv");
+        inFS.open("data/movie_data.csv");
         if (!inFS.is_open()) {
             cout << "Could not open movie data" << endl;
             return;
